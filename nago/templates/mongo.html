@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>몽고고</title>
+</head>
+<body>
+    <h1>mongo DB collection : {{ collection }}</h1>
+    <div>
+        <p>연결이 성공되면 {{ collection }}이 출력된다!!</p>
+        <p>--------------------------------------</p>
+        {% for i in data %}
+            <p>이름 : {{ i.name }}</p>
+            <p>한마디 : {{ i.comment }}</p>
+            <p>----------------------</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
