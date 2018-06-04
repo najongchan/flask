@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+           <div class="panel-title text-center">
+                <h1 class="title">Company Name</h1>
+                <hr />
+            </div>
+        </div>
+        <div>
+            <a href="/mongo">go mongo</a>
+        </div>
+        <div class="main-login main-center">
+            <form class="form-horizontal" method="post" action="/signup">
+
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name" value=""/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" value=""/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="cols-sm-2 control-label">Username</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username" value=""/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                </div>
+                <div class="login-register">
+                    <a href="/">Refresh</a>
+                 </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<script>-->
+<!--function validationCheck() {-->
+	<!--var name = $("#name");-->
+    <!--var email = $("#email");-->
+    <!--var username = $("#username");-->
+    <!--var password = $("#password");-->
+    <!--var confirm = $("#confirm");-->
+
+    <!--if(name.val() == '') { alert("아이디를 입력하세요!"); return; }-->
+    <!--if(email.val() == '') { alert("이메일을 입력학세요!"); return; }-->
+    <!--if(username.val() == '') { alert("이름을 입력학세요!"); return; }-->
+    <!--if(password.val() == '') { alert("비밀번호를 입력하세요!"); return; }-->
+
+    <!--if(name.val().length > 20 ) { alert("아이디 넘김"); return;}-->
+    <!--if(username.val().length > 20 ) { alert("이름이 넘김"); return;}-->
+
+    <!--var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;-->
+    <!--if (!regExp.test(email.val())){ alert("올바른 이메일 형식이 아님~"); return; }-->
+
+    <!--var reg_pwd = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;-->
+    <!--if(!reg_pwd.test($.trim(password.val()))){-->
+        <!--alert('비밀번호를 확인하세요.₩n(영문,숫자를 혼합하여 6~20자 이내)');-->
+        <!--return;-->
+    <!--}-->
+
+    <!--if (password.val() != confirm.val()) { alert("비번 확인 다시점"); return; }-->
+
+<!--}-->
+<!--$(document).ready( function () {-->
+ <!--console.log("xx");});-->
+<!--</script>-->
