@@ -1,6 +1,8 @@
 import re
+from nago.module.DB import db
 
-class Signup:
+
+class Member:
     # def __init__(self):
 
 
@@ -41,6 +43,33 @@ class Signup:
         result = re.match('^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$', password)
 
         if (result != None) & (password == confirm):
+            return True
+        else:
+            return False
+
+    # 회원가입
+    # @param    dict    memberData  유저 입력 정보
+    # @return   void
+    def addMember(self, memberData):
+        del memberData['confirm']
+
+        memberDB = db()
+        memberDB.insertMember(memberData)
+
+        return
+
+    # 로그인
+    # @param    dict    memberData  유저 입력 정보
+    # @rerutn   bool
+    def loginMember(self, memberData):
+        id = memberData['name']
+        print(type(id))
+        pwd = memberData['password']
+        print(memberData)
+        memberDB = db()
+        dbData = memberDB.findMember({"name": id})
+        print(dbData)
+        if dbData['password'] == pwd:
             return True
         else:
             return False

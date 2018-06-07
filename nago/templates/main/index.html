@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
- {% include "/main/signup.html" %}
+{% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% endif %}
+{% endblock %}
+    <a href="/login">로그인</a>
+    <a href="/signup">회원가입</a>
 </body>
 </html>

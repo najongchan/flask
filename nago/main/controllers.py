@@ -1,11 +1,6 @@
-from flask import Flask, Blueprint, render_template, request
-from pymongo import MongoClient
+from flask import Flask, Blueprint, render_template, request, session
 from pprint import pprint
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
-from flask_bootstrap import Bootstrap
-from nago.module.Signup import Signup
+from nago.module.Member import Member
 
 
 
@@ -17,15 +12,32 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('/main/index.html')
 
-@main.route('/signup', methods=['POST'])
-def login():
-    pprint(request)
-    pprint(request.form)
-    dict = request.form
-    name = dict['name']
+@main.route('/signup')
+def signupPage():
+    return render_template('/main/signup.html')
 
-    checker = Signup()
-    if checker.checkValidate(request.form) == True:
-        return render_template('/main/user.html', name = name)
+@main.route('/signup', methods=['POST'])
+def signupRoute():
+    dict = request.form.to_dict()
+    member = Member()
+    if member.checkValidate(request.form) == True:
+        member.addMember(dict)
+        return render_template('/main/index.html')
     else:
         return 'Fail'
+
+@main.route('/login')
+def loginPage():
+    return render_template('/main/login.html')
+
+@main.route('/login', methods=['POST'])
+def loginRoute():
+    dict = request.form.to_dict()
+    member = Member()
+    result = member.loginMember(dict)
+
+    if result == True:
+        session['logged_in'] = True
+        return render_template('/main/index.html')
+    else:
+        return render_template('/main/login.html')
