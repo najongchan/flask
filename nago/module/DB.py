@@ -33,7 +33,7 @@ class db:
 
     def findAdmin(self, condition):
         adminCollection = self.db.admin
-        results = adminCollection.findOne(condition)
+        results = adminCollection.find_one(condition)
         self.client.close()
 
         return results

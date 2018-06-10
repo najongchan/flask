@@ -6,7 +6,7 @@ admin = Blueprint('admin', __name__)
 
 @admin.route('/')
 def index():
-    return render_template('/main/adminLogin.html')
+    return render_template('/admin/adminLogin.html')
 
 
 @admin.route('/login', methods=['POST'])
@@ -18,11 +18,15 @@ def login():
 
     if result:
         print('login success')
+        session['admin'] = True
+        return render_template('/admin/index.html')
     else:
         print('login fail')
+        return render_template('/admin/adminLogin.html')
 
 
-@admin.route('logout')
+@admin.route('/logout')
 def logout():
+    session.pop('admin')
     # 로그아웃 처리
-    return True
+    return render_template('/admin/adminLogin.html')

@@ -1,10 +1,11 @@
 from nago.module.DB import db
+from flask import render_template
 from operator import eq
 
 
 class Admin:
 
-    def checkValidate(self, form) :
+    def checkValidate(self, form):
         name = form['name']
         adminId = form['employeeNumber']
         password = form['password']
@@ -30,14 +31,17 @@ class Admin:
     def login(self, admin):
         adminId = admin['adminId']
         password = admin['password']
+        print(admin)
         print(adminId, password)
 
         adminDB = db()
         checkValidAdmin = adminDB.findAdmin({"adminId": adminId})
         print(type(checkValidAdmin))
-        print(checkValidAdmin)
 
-        if checkValidAdmin['password'] == password:
-            return True
-        else:
+        try:
+            if checkValidAdmin['password'] == password:
+                return True
+            else:
+                return False
+        except:
             return False
