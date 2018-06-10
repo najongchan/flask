@@ -23,4 +23,9 @@ class db:
         results = userCollection.insert(condition)
         self.client.close()
 
-        # return results
+        # return results'
+
+    # db connection close
+    # @return   void
+    def dbClose(self):
+        self.client.close()
