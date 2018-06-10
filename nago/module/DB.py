@@ -29,3 +29,11 @@ class db:
     # @return   void
     def dbClose(self):
         self.client.close()
+
+
+    def findAdmin(self, condition):
+        adminCollection = self.db.admin
+        results = adminCollection.findOne(condition)
+        self.client.close()
+
+        return results
