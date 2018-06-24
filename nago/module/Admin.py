@@ -1,5 +1,4 @@
 from nago.module.DB import db
-from flask import render_template
 from operator import eq
 
 
@@ -36,6 +35,7 @@ class Admin:
 
         adminDB = db()
         checkValidAdmin = adminDB.findAdmin({"adminId": adminId})
+
         print(type(checkValidAdmin))
 
         try:

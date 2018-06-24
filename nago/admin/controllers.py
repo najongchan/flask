@@ -6,7 +6,11 @@ admin = Blueprint('admin', __name__)
 
 @admin.route('/')
 def index():
-    return render_template('/admin/adminLogin.html')
+    try:
+        if session['admin']:
+            return render_template('/admin/index.html')
+    except KeyError:
+        return render_template('/admin/adminLogin.html')
 
 
 @admin.route('/login', methods=['POST'])
@@ -30,3 +34,13 @@ def logout():
     session.pop('admin')
     # 로그아웃 처리
     return render_template('/admin/adminLogin.html')
+
+
+@admin.route('/index')
+def mainPage():
+    return render_template('/admin/index.html')
+
+
+@admin.route('/user')
+def userListPage():
+    return render_template('/admin/userList.html')

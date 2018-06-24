@@ -15,6 +15,15 @@ class db:
 
         return results
 
+
+    def findAllMember(self):
+        userCollection = self.db.user
+        results = userCollection.find();
+        self.client.close()
+
+        return results
+
+
     # db user insert
     # @param    dict    condition
     # @return   void
