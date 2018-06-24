@@ -38,6 +38,6 @@ def loginRoute():
 
     if result == True:
         session['logged_in'] = True
-        return render_template('/main/index.html')
+        return render_template('/main/user.html')
     else:
         return render_template('/main/login.html')
