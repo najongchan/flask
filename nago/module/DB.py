@@ -34,6 +34,12 @@ class db:
 
         # return results'
 
+    def deleteMember(self, userId):
+        userCollection = self.db.user
+        userCollection.remove({"id": userId})
+        self.client.close()
+
+
     # db connection close
     # @return   void
     def dbClose(self):

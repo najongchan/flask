@@ -40,10 +40,3 @@ def logout():
 @admin.route('/index')
 def mainPage():
     return render_template('/admin/index.html')
-
-
-@admin.route('/user')
-def userListPage():
-    userManagement = UserManagement()
-    userList = userManagement.getUserList()
-    return render_template('/admin/userList.html', userList=userList)

@@ -6,13 +6,66 @@
 </head>
 <body>
 {% include "/admin/base.html" %}
-<div class="userList">
-    {% block userList %}
-            {% for user in userList %}
-                 <p>userId : {{user.id}} , password : {{user.password}}</p>
-            {% endfor %}
-    {% endblock %}
+<div class="userList" style="width:80%;">
+    <table class = "table table-bordered">
+        <thead>
+        <tr>
+            <td width="25%">회원 ID</td>
+            <td width="25%">인사말</td>
+            <td width="20"></td>
+            <td width="20"></td>
+            <td width="10"></td>
+        </tr>
+        </thead>
+        <tbody>
+         {% block userList %}
+             {% for user in userList %}
+                <tr>
+                    <td class="userId">{{user.id}}</td>
+                    <td>{{user.comment}}</td>
+                    <td><button type="button" class="btn btn-primary">회원정보수정</button></td>
+                    <td><button type="button" class="btn btn-info">회원내역조회</button></td>
+                    <td><button type="button" class="btn btn-danger" data-id="{{user.id}}">회원탈퇴</button></td>
+                </tr>
+             {% endfor %}
+         {% endblock %}
+     </tbody>
+    </table>
 </div>
 
 </body>
 </html>
+<script>
+    $(function() {
+        $(".btn-danger").on("click", deleteMember);
+        $(".btn-info").on("click", showMemberHistory);
+        $(".btn-primary").on("click", modifyMemberInformation);
+    })
+
+    function deleteMember() {
+        var userId = $(this).data("id");
+
+        var isDelete = confirm("정말 회원을 탈퇴시키시겠습니까?");
+
+        if (isDelete) {
+            $.ajax({
+                url : "/admin/user/delete",
+                async : false,
+                type : "POST",
+                data : {
+                    userId : userId
+                }
+            }).success(function() {
+                alert("삭제되었습니다");
+            }).error(function() {
+                alert("실패하였습니다");
+            })
+        }
+    }
+
+    function showMemberHistory() {
+    }
+
+    function modifyMemberInformation() {
+    }
+</script>
