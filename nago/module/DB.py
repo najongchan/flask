@@ -57,7 +57,7 @@ class db:
     # @return   dict
     def findBoardTitle(self):
         boardCollection = self.db.board
-        results = boardCollection.find({}, {"title" : 1, "sno" : 1}).limit(10)
+        results = boardCollection.find({}, {"title" : 1, "sno" : 1, "writer" : 1}).limit(10)
         self.client.close()
 
         return results
@@ -80,5 +80,3 @@ class db:
         boardCollection = self.db.board
         results = boardCollection.insert(condition)
         self.client.close()
-
-

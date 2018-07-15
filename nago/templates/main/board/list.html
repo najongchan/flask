@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% include "/base.html" %}
 <body>
-
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">sno</th>
+      <th scope="col">title</th>
+      <th scope="col">writer</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for board in boardList %}
+    <tr>
+      <th scope="row">{{ board.sno }}</th>
+      <td>{{ board.title }}</td>
+      <td>{{ board.writer }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
 </body>
 </html>
