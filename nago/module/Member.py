@@ -9,11 +9,11 @@ class Member:
     def checkValidate(self, form):
         name = form['name']
         email = form['email']
-        username = form['username']
+        id = form['id']
         password = form['password']
         confirm = form['confirm']
 
-        if(self.checkName(name) & self.checkEmail(email) & self.checkUsername(username) & self.checkPassword(password, confirm)):
+        if(self.checkName(name) & self.checkEmail(email) & self.checkId(id) & self.checkPassword(password, confirm)):
             return True
         return False
 
@@ -31,8 +31,8 @@ class Member:
         else:
             return False
 
-    def checkUsername(self, username):
-        if len(username) >= 20:
+    def checkId(self, id):
+        if len(id) >= 20:
             return False
         return True
 
@@ -62,12 +62,12 @@ class Member:
     # @param    dict    memberData  유저 입력 정보
     # @rerutn   bool
     def loginMember(self, memberData):
-        id = memberData['name']
+        id = memberData['id']
         print(type(id))
         pwd = memberData['password']
         print(memberData)
         memberDB = db()
-        dbData = memberDB.findMember({"name": id})
+        dbData = memberDB.findMember({"id": id})
         print(dbData)
         if dbData['password'] == pwd:
             return True
