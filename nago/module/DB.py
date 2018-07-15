@@ -43,7 +43,11 @@ class db:
     def findBoardTitle(self):
         boardCollection = self.db.board
 <<<<<<< HEAD
+<<<<<<< HEAD
         results = boardCollection.find({}, {"title" : 1, "sno" : 1, "writer" : 1}).limit(10)
+=======
+        results = boardCollection.find({}, {"title" : 1, "sno" : 1}).limit(10)
+>>>>>>> 3bdf93b7a8d160e5ea75ff7e44f260b6786900c5
 =======
         results = boardCollection.find({}, {"title" : 1, "sno" : 1}).limit(10)
 >>>>>>> 3bdf93b7a8d160e5ea75ff7e44f260b6786900c5
@@ -70,6 +74,11 @@ class db:
         results = boardCollection.insert(condition)
         self.client.close()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 3bdf93b7a8d160e5ea75ff7e44f260b6786900c5
 =======
 
 
