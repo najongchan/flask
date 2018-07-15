@@ -21,7 +21,7 @@ class db:
         results = userCollection.find();
         self.client.close()
 
-        return results
+        return list(results)
 
 
     # db user insert

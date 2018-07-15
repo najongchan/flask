@@ -7,11 +7,11 @@
 <body>
 {% include "/admin/base.html" %}
 <div class="userList">
-    <table>
-        <thead>
-
-        </thead>
-    </table>
+    {% block userList %}
+            {% for user in userList %}
+                 <p>userId : {{user.id}} , password : {{user.password}}</p>
+            {% endfor %}
+    {% endblock %}
 </div>
 
 </body>

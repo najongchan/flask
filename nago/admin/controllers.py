@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, session
 from nago.module.Admin import Admin
+from nago.admin.UserManagement import UserManagement
 
 admin = Blueprint('admin', __name__)
 
@@ -43,4 +44,6 @@ def mainPage():
 
 @admin.route('/user')
 def userListPage():
-    return render_template('/admin/userList.html')
+    userManagement = UserManagement()
+    userList = userManagement.getUserList()
+    return render_template('/admin/userList.html', userList=userList)

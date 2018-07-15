@@ -4,4 +4,5 @@ class UserManagement:
 
     def getUserList(self):
         adminDB = db()
-        return adminDB.findMember()
+        return adminDB.findAllMember()
+
