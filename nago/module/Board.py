@@ -1,4 +1,7 @@
-import regit
+<<<<<<< HEAD
+=======
+import re
+>>>>>>> 3bdf93b7a8d160e5ea75ff7e44f260b6786900c5
 from nago.module.DB import db
 
 class Board:
