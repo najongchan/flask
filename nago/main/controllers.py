@@ -33,10 +33,10 @@ def loginPage():
 
 @main.route('/login', methods=['POST'])
 def loginRoute():
+
     dict = request.form.to_dict()
     member = Member()
     result = member.loginMember(dict)
-
     if result == True:
         session['logged_in'] = True
         return render_template('/main/user.html')

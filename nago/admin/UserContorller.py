@@ -22,3 +22,15 @@ def deleteUser():
     resp = make_response()
     resp.status_code = 200
     return resp
+
+# @manageUser.route('/content', methods=['GET'])
+# def getUserContent():
+#     data = request.form['userId']
+#
+#     userManagement = UserManagement()
+#     userManagement.getUserContent(data)
+#
+#     print(data)
+#     resp = make_response()
+#     resp.status_code = 200
+#     resp.

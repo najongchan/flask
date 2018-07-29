@@ -11,7 +11,7 @@
         <thead>
         <tr>
             <td width="25%">회원 ID</td>
-            <td width="25%">인사말</td>
+            <td width="25%">이메일</td>
             <td width="20"></td>
             <td width="20"></td>
             <td width="10"></td>
@@ -22,7 +22,7 @@
              {% for user in userList %}
                 <tr>
                     <td class="userId">{{user.id}}</td>
-                    <td>{{user.comment}}</td>
+                    <td>{{user.email}}</td>
                     <td><button type="button" class="btn btn-primary">회원정보수정</button></td>
                     <td><button type="button" class="btn btn-info">회원내역조회</button></td>
                     <td><button type="button" class="btn btn-danger" data-id="{{user.id}}">회원탈퇴</button></td>
