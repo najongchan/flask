@@ -30,13 +30,8 @@ class Admin:
     def login(self, admin):
         adminId = admin['adminId']
         password = admin['password']
-        print(admin)
-        print(adminId, password)
-
         adminDB = db()
         checkValidAdmin = adminDB.findAdmin({"adminId": adminId})
-
-        print(type(checkValidAdmin))
 
         try:
             if checkValidAdmin['password'] == password:
