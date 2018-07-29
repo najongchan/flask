@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session, flash
 from nago.module.Admin import Admin
 from nago.admin.UserManagement import UserManagement
 
@@ -27,6 +27,7 @@ def login():
         return render_template('/admin/index.html')
     else:
         print('login fail')
+        flash("일치하는 사용자가 없습니다")
         return render_template('/admin/adminLogin.html')
 
 

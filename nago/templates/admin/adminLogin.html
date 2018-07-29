@@ -5,6 +5,19 @@
     <title>관리자 로그인</title>
 </head>
 <body>
+{% include "/admin/base.html" %}
+{% block content %}
+<div class="container" style="width : 300px;">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        {{message}}
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
+<div class="container" style="width:300px;">
  <form class="form-horizontal" method="post" action="/admin/login">
 
         <div class="form-group">
@@ -27,5 +40,6 @@
             <button type="submit" class="btn btn-primary btn-lg btn-block login-button">로그인</button>
         </div>
      </form>
+</div>
 </body>
 </html>
