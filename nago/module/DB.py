@@ -2,7 +2,7 @@ from pymongo import MongoClient
 
 class db:
     def __init__(self):
-        self.client = MongoClient('mongodb://localhost:27017/flask')
+        self.client = MongoClient('mongodb://localhost:27017/')
         self.db = self.client.mongotest
 
     # db user find
