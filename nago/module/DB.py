@@ -18,7 +18,7 @@ class db:
 
     def findAllMember(self):
         userCollection = self.db.user
-        results = userCollection.find();
+        results = userCollection.find()
         self.client.close()
 
         return list(results)
@@ -68,7 +68,7 @@ class db:
 
     def findBoardContent(self, condition):
         boardCollection = self.db.board
-        results = boardCollection.find(condition)
+        results = boardCollection.find_one(condition)
         self.client.close()
 
         return results
