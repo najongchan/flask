@@ -13,7 +13,7 @@
   {% for board in boardList %}
     <tr>
       <th scope="row">{{ board.sno }}</th>
-      <td>{{ board.title }}</td>
+      <td onclick="boardView({{ board.sno }})" style="cursor:pointer;">{{ board.title }}</td>
       <td>{{ board.writer }}</td>
     </tr>
   {% endfor %}
@@ -21,4 +21,9 @@
 </table>
 <a href="/board/writeView/{{ session.id }}">글쓰기</a>
 </body>
+<script>
+  function boardView(sno) {
+    location.href = "/board/view/" + sno;
+  }
+</script>
 </html>

@@ -26,6 +26,6 @@ class Board:
     # @return   dict
     def viewBoardContent(self, sno):
         boardDB = db()
-        contents = boardDB.findBoardContent({"sno": sno})
+        contents = boardDB.findBoardContent({"sno": int(sno)})
 
         return contents
