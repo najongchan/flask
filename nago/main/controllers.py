@@ -1,7 +1,6 @@
 from flask import Flask, Blueprint, render_template, request, session
 from pprint import pprint
 from nago.module.Member import Member
-from nago.module.Board import Board
 
 
 
@@ -39,16 +38,8 @@ def loginRoute():
     result = member.loginMember(dict)
     if result == True:
         session['logged_in'] = True
+        session['id'] = request.form['id']
+        print(session)
         return render_template('/main/user.html')
     else:
-        return render_template('/main/login.html')
-
-@main.route('/board/list')
-def boardListView():
-    board = Board()
-    result = board.viewBoardList()
-    boardList = []
-    for doc in result:
-        boardList.append(doc)
-
-    return render_template('/main/board/list.html', boardList=boardList)
+        return render_template('/main/login.html', )

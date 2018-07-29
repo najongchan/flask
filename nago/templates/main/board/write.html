@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
+<form action="/board/write">
+    <table>
+        <tr>
+            <td>제목</td>
+            <td><input type="text" id="title" name="title"></td>
+        </tr>
+        <tr>
+            <td>작성자</td>
+            <td><input type="text" id="writer" name="writer" value="{{ writer }}" readonly></td>
+        </tr>
+        <tr>
+            <td>내용</td>
+            <td><input type="text" id="content" name="content"></td>
+        </tr>
+    </table>
+</form>
 
 </body>
 </html>

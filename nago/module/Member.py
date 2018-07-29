@@ -68,8 +68,10 @@ class Member:
         print(memberData)
         memberDB = db()
         dbData = memberDB.findMember({"id": id})
-        print(dbData)
-        if dbData['password'] == pwd:
-            return True
-        else:
+        try:
+            if dbData['password'] == pwd:
+                return True
+            else:
+                return False
+        except:
             return False
