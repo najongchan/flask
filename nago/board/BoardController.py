@@ -15,10 +15,17 @@ def boardListView():
 
     return render_template('/main/board/list.html', boardList=boardList)
 
+@board.route('/view/<sno>')
+def boardView(sno):
+    board = Board()
+    data = board.viewBoardContent(sno)
+    return render_template('/main/board/view.html', data=data)
+
 @board.route('/writeView/<id>')
 def boardWriteView(id):
     print(id)
     return render_template('/main/board/write.html', writer=id)
+
 
 @board.route('/write', methods=['POST'])
 def boardWrite():
