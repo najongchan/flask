@@ -9,6 +9,7 @@ admin = Blueprint('admin', __name__)
 def index():
     try:
         if session['admin']:
+            print(session['adminId'])
             return render_template('/admin/index.html')
     except KeyError:
         return render_template('/admin/adminLogin.html')
@@ -24,6 +25,7 @@ def login():
     if result:
         print('login success')
         session['admin'] = True
+        session['adminId'] = request.form['adminId']
         return render_template('/admin/index.html')
     else:
         print('login fail')
@@ -34,6 +36,7 @@ def login():
 @admin.route('/logout')
 def logout():
     session.pop('admin')
+    session.pop('adminId')
     # 로그아웃 처리
     return render_template('/admin/adminLogin.html')
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>게시글 작성</title>
 </head>
 <body>
-<form action="/board/write">
+{% include "/base.html" %}
     <table>
         <tr>
             <td>제목</td>
@@ -20,7 +20,36 @@
             <td><input type="text" id="content" name="content"></td>
         </tr>
     </table>
-</form>
-
+    <button type="button" id="write" class="btn btn-info">작성</button>
 </body>
 </html>
+<script>
+    $(function() {
+        $("#write").on("click", writeBoard);
+    })
+
+    function writeBoard() {
+        var title = $("#title").val();
+        var writer = $("#writer").val();
+        var content = $("#content").val();
+
+        $.ajax({
+            url : "/board/write",
+            method : "POST",
+            data : {
+                "title" : title,
+                "writer" : writer,
+                "content" : content
+            },
+            success : function (data) {
+                alert("생성되었습니다")
+                location.href = data
+                //location.href = '/board'
+            },
+            error : function() {
+                alert("실패하였습니다")
+            }
+        })
+
+    }
+</script>
